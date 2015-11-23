@@ -1,0 +1,37 @@
+apply plugin: 'java'
+apply plugin: 'scala'
+apply plugin: 'groovy'
+apply plugin: 'idea'
+
+buildscript {
+    repositories {
+        maven { url "http://clojars.org/repo" }
+        mavenCentral()
+    }
+    dependencies {
+        classpath "clojuresque:clojuresque:1.7.0"
+    }
+}
+
+apply plugin: 'clojure'
+
+clojure.aotCompile = true
+
+group 'se.webstep.func'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+buildDir = 'target'
+
+repositories{
+    mavenCentral()
+    mavenLocal()
+}
+
+dependencies {
+    compile 'org.scala-lang:scala-library:2.11.7'
+    compile 'org.codehaus.groovy:groovy-all:2.4.4'
+    compile "org.clojure:clojure:1.6.0"
+    testCompile 'junit:junit:4.11'
+}
